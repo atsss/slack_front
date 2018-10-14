@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import NotFound from '../../components/NotFound';
 
@@ -9,8 +9,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Match exactly pattern="/" component={Home} />
-          <Miss component={NotFound} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
