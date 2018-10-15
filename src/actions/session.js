@@ -1,10 +1,12 @@
 import { reset } from 'redux-form';
 import api from '../api';
 import history from '../histroy'
+import { fetchUserRooms } from './rooms';
 
 function setCurrentUser(dispatch, response) {
   localStorage.setItem('token', JSON.stringify(response.meta.token));
   dispatch({ type: 'AUTHENTICATION_SUCCESS', response });
+  dispatch(fetchUserRooms(response.data.id));
 }
 
 export function login(data, router) {
