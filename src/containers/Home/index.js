@@ -40,7 +40,6 @@ class Home extends Component {
         {isAuthenticated &&
           <div>
             <span>{currentUser.username}</span>
-            <button type="button" onClick={this.handleLogout}>Logout</button>
           </div>
         }
       </div>

@@ -1,5 +1,6 @@
 import { reset } from 'redux-form';
 import api from '../api';
+import history from '../histroy'
 
 function setCurrentUser(dispatch, response) {
   localStorage.setItem('token', JSON.stringify(response.meta.token));
@@ -11,7 +12,7 @@ export function login(data, router) {
     .then((response) => {
       setCurrentUser(dispatch, response);
       dispatch(reset('login'));
-      router.transitionTo('/');
+      history.push('/');
     });
 }
 
@@ -20,7 +21,7 @@ export function signup(data, router) {
     .then((response) => {
       setCurrentUser(dispatch, response);
       dispatch(reset('signup'));
-      router.transitionTo('/');
+      history.push('/');
     });
 }
 
