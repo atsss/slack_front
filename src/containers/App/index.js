@@ -2,12 +2,28 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../../histroy';
+import { connect } from 'react-redux';
+import { authenticate } from '../../actions/session';
 import Home from '../Home';
 import NotFound from '../../components/NotFound';
 import Login from '../Login';
 import Signup from '../Signup';
 
+type Props = {
+  authenticate: () => void,
+}
+
 class App extends Component {
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      this.props.authenticate();
+    }
+  }
+
+  props: Props
+
   render() {
     return (
       <Router history={history}>
@@ -22,4 +38,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  null,
+  { authenticate }
+)(App);
