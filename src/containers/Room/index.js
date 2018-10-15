@@ -2,6 +2,6 @@
 import React from 'react';
 
 const Room = props =>
-  <div>Room {props.params.id}</div>;
+  <div>Room</div>;
 
 export default Room;

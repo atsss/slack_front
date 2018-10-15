@@ -40,18 +40,20 @@ class App extends Component {
 
     return (
       <Router history={history}>
-        <Switch style={{ display: 'flex', flex: '1' }}>
+        <div style={{ display: 'flex', flex: '1' }}>
           {isAuthenticated &&
             <Sidebar
               rooms={currentUserRooms}
             />
           }
-          <MatchAuthenticated exact path="/" component={Home} {...authProps} />
-          <RedirectAuthenticated path="/login" component={Login} {...authProps} />
-          <RedirectAuthenticated path="/signup" component={Signup} {...authProps} />
-          <MatchAuthenticated pattern="/r/:id" component={Room} {...authProps} />
-          <Route component={NotFound} />
-        </Switch>
+          <Switch>
+            <MatchAuthenticated exact path="/" component={Home} {...authProps} />
+            <RedirectAuthenticated path="/login" component={Login} {...authProps} />
+            <RedirectAuthenticated path="/signup" component={Signup} {...authProps} />
+            <MatchAuthenticated pattern="/r/:id" component={Room} {...authProps} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </Router>
     );
   }

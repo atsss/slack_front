@@ -76,6 +76,7 @@ const Sidebar = ({ rooms }: Props) =>
     {rooms.map(room => <RoomLink key={room.id} room={room} />)}
     <NavLink
       to="/"
+      exact
       className={css(styles.link)}
       activeClassName={css(styles.activeLink)}
     >
