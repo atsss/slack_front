@@ -50,7 +50,7 @@ class App extends Component {
             <MatchAuthenticated exact path="/" component={Home} {...authProps} />
             <RedirectAuthenticated path="/login" component={Login} {...authProps} />
             <RedirectAuthenticated path="/signup" component={Signup} {...authProps} />
-            <MatchAuthenticated pattern="/r/:id" component={Room} {...authProps} />
+            <MatchAuthenticated path="/r/:id" component={Room} {...authProps} />
             <Route component={NotFound} />
           </Switch>
         </div>
