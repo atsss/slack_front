@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     padding: '10px 10px 0 10px',
     background: '#fff',
     overflowY: 'auto',
+    width: '70vw',
   },
 
   dayDivider: {
